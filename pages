@@ -1,0 +1,82 @@
+.page {
+  background-image: url('https://i.ibb.co/M5f05LsV/Kapak.png');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  min-height: 100vh;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: #000;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 40px;
+}
+
+.wrapper {
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  max-width: 900px;
+  width: 100%;
+}
+
+h1, h2 {
+  color: #0056b3;
+}
+
+.group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+input[type="email"],
+input[type="password"],
+input[type="text"],
+select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+button {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  width: 100%;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+ul li a {
+  display: block;
+  padding: 10px 0;
+  text-decoration: none;
+  color: #007bff;
+  border-bottom: 1px solid #eee;
+}
+
+ul li a:hover {
+  color: #0056b3;
+}

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Mehmet Akif Arslan">
+    <title>Hastane Otomasyonu</title>
+    <style>
+        body {
+            background-image: url('https://i.ibb.co/M5f05LsV/Kapak.png');
+            background-size: cover; 
+            background-position: center center; 
+            background-repeat: no-repeat; 
+            background-attachment: fixed; 
+            margin: 0; 
+            font-family: Arial, sans-serif; 
+            color: #000000; 
+        }
+
+        
+        .content-wrapper {
+            background-color: rgba(255, 255, 255, 0.85); 
+            padding: 30px;
+            margin: 50px auto; 
+            max-width: 900px; 
+            border-radius: 10px; 
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); 
+        }
+
+        h1, h2 {
+            color: #0056b3;
+        }
+
+        
+        .form-group { 
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input[type="email"],
+        input[type="password"],
+        input[type="text"],
+        select { 
+            width: calc(100% - 22px); 
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box; 
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+            width: 100%; 
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        ul li a {
+            display: block;
+            padding: 10px 0;
+            text-decoration: none;
+            color: #007bff;
+            border-bottom: 1px solid #eee;
+        }
+
+        ul li a:hover {
+            color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="content-wrapper">
+        <h1>Hastane Otomasyonuna Hoş Geldiniz</h1>
+        <p>Bu sistem üzerinden randevu, mesajlaşma ve kullanıcı işlemlerini gerçekleştirebilirsiniz.</p>
+
+        <h2>Kayıt Ol</h2>
+        <form>
+            <div class="form-group">
+                <label for="register-name">Adınız</label>
+                <input type="text" id="register-name" name="register-name" placeholder="Adınız">
+            </div>
+            <div class="form-group">
+                <label for="register-email">E-posta</label>
+                <input type="email" id="register-email" name="register-email" placeholder="E-posta">
+            </div>
+            <div class="form-group">
+                <label for="register-password">Şifre</label>
+                <input type="password" id="register-password" name="register-password" placeholder="Şifreniz">
+            </div>
+            <div class="form-group">
+                <label for="register-department">Bölüm Seçiniz</label>
+                <select id="register-department" name="register-department">
+                    <option value="">Lütfen bir bölüm seçiniz</option>
+                    <option value="beslenme-diyet">Beslenme ve Diyet</option>
+                    <option value="cocuk-hastaliklari">Çocuk Sağlığı ve Hastalıkları</option>
+                    <option value="fizik-tedavi">Fizik Tedavi Polikliniği</option>
+                    <option value="genel-cerrahi">Genel Cerrahi</option>
+                    <option value="goz-hastaliklari">Göz Hastalıkları</option>
+                    <option value="ic-hastaliklari">İç Hastalıkları</option>
+                    <option value="kadin-dogum">Kadın Hastalıkları ve Doğum</option>
+                    <option value="kanser-tarama">Kanser Tarama</option>
+                    <option value="pratisyen-hekim">Pratisyen Hekim (Sağlık Raporu)</option>
+                    <option value="psikolog">Psikolog</option>
+                </select>
+            </div>
+            <button type="submit">Kayıt Ol</button>
+        </form>
+
+        <h2>Giriş Yap</h2>
+        <form>
+            <div class="form-group">
+                <label for="login-email">E-posta</label>
+                <input type="email" id="login-email" name="login-email" placeholder="E-posta">
+            </div>
+            <div class="form-group">
+                <label for="login-password">Şifre</label>
+                <input type="password" id="login-password" name="login-password" placeholder="Şifre">
+            </div>
+            <button type="submit">Giriş Yap</button>
+        </form>
+
+        <h2>Profilim</h2>
+        <form>
+            <div class="form-group">
+                <label for="profile-name">Ad Soyad</label>
+                <input type="text" id="profile-name" name="profile-name" placeholder="Ad Soyad">
+            </div>
+            <div class="form-group">
+                <label for="profile-email">E-posta</label>
+                <input type="email" id="profile-email" name="profile-email" placeholder="E-posta">
+            </div>
+            <button type="submit">Bilgileri Güncelle</button>
+        </form>
+
+        <h2>Admin Paneli</h2>
+        <ul>
+            <li><a href="#">Kullanıcıları Yönet</a></li>
+            <li><a href="#">Randevular</a></li>
+            <li><a href="#">Bölümler</a></li>
+        </ul>
+    </div>
+</body>
+</html> 
+<script>
+  async function fetchUsers() {
+    const response = await fetch('/api/users');
+    const users = await response.json();
+
+    const list = document.createElement('ul');
+    users.forEach(user => {
+      const item = document.createElement('li');
+      item.textContent = `${user.name} (${user.role}) - ${user.email}`;
+      list.appendChild(item);
+    });
+
+    document.body.appendChild(list);
+  }
+
+  
+  window.onload = fetchUsers;
+</script>

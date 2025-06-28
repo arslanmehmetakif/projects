@@ -1,0 +1,32 @@
+const handleRegister = async (e) => {
+  e.preventDefault();
+  const form = e.target;
+  const body = {
+    name: form['register-name'].value,
+    email: form['register-email'].value,
+    password: form['register-password'].value,
+    departmentId: form['register-department'].value,
+    role: 'PATIENT'
+  };
+
+  const res = await fetch('/api/register', {
+    method: 'POST',
+    body: JSON.stringify(body),
+    headers: { 'Content-Type': 'application/json' },
+  });
+
+  const result = await res.json();
+  if (res.ok) {
+    alert('Kayıt başarılı!');
+    form.reset();
+  } else {
+    alert(result.error || 'Hata oluştu.');
+  }
+};
+import { PrismaClient } from '@prisma/client'
+
+const globalForPrisma = globalThis
+
+export const prisma = globalForPrisma.prisma || new PrismaClient()
+
+if (process.env.NODE_ENV !== 'production') globalForPrisma.prisma = prisma
