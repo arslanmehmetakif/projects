@@ -1,12 +1,18 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
-
+![Panel](https://github.com/user-attachments/assets/79accfb0-e1bf-4272-9d4f-c83c9e455569)This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+Bu projenin konusu, hastane otomasyon sisteminin dijital ortamda yönetilmesini sağlayan bir web uygulamasıdır. 
+SQL Database Yedeği Github'a Ana Dizine Eklenmiştir
 ## Getting Started
 
-First, run the development server:
+First, run the development server: 
 
-```bash
+
+
 npm run dev
-# or
+# or![Kapak](https://github.com/user-attachments/assets/a44dd497-29b4-4657-ab22-5a290a439f63)
+![Panel](https://github.com/user-attachments/assets/2b36cfba-e878-4253-b565-a3a5947a8e8e)
+![Paketler](https://github.com/user-attachments/assets/d7d4fa50-2461-4801-b30b-bdac53d36504)
+![Branşlar](https://github.com/user-attachments/assets/83f63928-8d4d-40af-aa01-ce007eebcfd5)
+
 yarn dev
 # or
 pnpm dev
